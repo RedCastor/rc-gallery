@@ -1,0 +1,35 @@
+{
+  "name": "rc-gallery",
+  "version": "1.0.0",
+  "homepage": "https://redcastor.io",
+  "authors": [
+    "Auban le Grelle"
+  ],
+  "description": "Angular wrapper for Unitegallery and Galleria",
+  "keywords": [
+    "angular",
+    "redcastor",
+    "angularjs",
+    "directive",
+    "unitegallery",
+    "galleria",
+    "gallery"
+  ],
+  "main": [
+    "dist/rc-unitegallery.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "**/*.txt",
+    ".jscsrc",
+    ".jshintrc",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "unitegallery": ">=1.7.40",
+    "galleria": ">=1.5.7",
+    "angular": ">= 1.6.4",
+    "jquery": ">=2.2.4"
+  }
+}

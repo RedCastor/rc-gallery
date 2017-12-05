@@ -1,0 +1,1 @@
+angular.module('rcGallery').run(['$templateCache', function($templateCache) {$templateCache.put('rcg-media.tpl.html','<div data-ng-show="rcGalleryApi.isMediaReady" class="rcg-media" rcg-transclude ></div>');}]);
