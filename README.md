@@ -12,6 +12,7 @@ bower install --save rc-gallery
 ```
 
 <h4>Usage/Example</h4>
+
 ```html
 <script type="text/javascript">
     'use strict';
