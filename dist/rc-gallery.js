@@ -70,7 +70,7 @@
                                 var attr = key.replace(/([A-Z])/g, function($1) {
                                     return "-" + $1.toLowerCase();
                                 });
-                                if (attr.length > 0) {
+                                if (attr.length > 0 && !attrs[attr]) {
                                     attrs.$set(attr, value);
                                 }
                             }
