@@ -6,7 +6,7 @@
     var module = angular.module('rcGallery');
 
 
-    module.directive('rcGallery', [ '$log', '$timeout', function ( $log, $timeout ) {
+    module.directive('rcGallery', [ function () {
         return {
             restrict: 'EA',
             scope: {

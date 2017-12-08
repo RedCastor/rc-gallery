@@ -63,38 +63,73 @@ bower install --save rc-gallery
 
         $scope.gallery = [
             {
-                thumb: 'https://dummyimage.com/300',
-                image: 'https://dummyimage.com/800',
-                big_image: 'https://dummyimage.com/2048',
-                title: 'My title',
+                img: {
+                    dataNgSrc: 'dist/images/loco-300x300.jpg',
+                    dataImage: 'dist/images/loco-768x518.jpg',
+                    dataBig_image: 'dist/images/loco.jpg',
+                    dataTitle: 'Loco',
+                    dataDescription: 'My description'
+                },
+                thumb: 'dist/images/loco-300x300.jpg',
+                image: 'dist/images/loco-768x518.jpg',
+                big_image: 'dist/images/loco.jpg',
+                title: 'Loco',
                 description: 'My description'
             },
             {
-                thumb: 'https://dummyimage.com/300',
-                image: 'https://dummyimage.com/800',
-                big_image: 'https://dummyimage.com/2048',
-                title: 'My title',
+                img: {
+                    dataNgSrc: 'dist/images/mining-excavator-300x300.jpg',
+                    dataImage: 'dist/images/loco-768x518.jpg',
+                    dataBig_image: 'dist/images/mining-excavator.jpg',
+                    dataTitle: 'Mining Excavator',
+                    dataDescription: 'My description'
+                },
+                thumb: 'dist/images/mining-excavator-300x300.jpg',
+                image: 'dist/images/loco-768x518.jpg',
+                big_image: 'dist/images/mining-excavator.jpg',
+                title: 'Mining Excavator',
                 description: 'My description'
             },
             {
-                thumb: 'https://dummyimage.com/300',
-                image: 'https://dummyimage.com/800',
-                big_image: 'https://dummyimage.com/2048',
-                title: 'My title',
+                img: {
+                    dataNgSrc: 'dist/images/buick-300x300.jpg',
+                    dataImage: 'dist/images/buick-768x512.jpg',
+                    dataBig_image: 'dist/images/buick.jpg',
+                    dataTitle: 'Buick',
+                    dataDescription: 'My description'
+                },
+                thumb: 'dist/images/buick-300x300.jpg',
+                image: 'dist/images/buick-768x512.jpg',
+                big_image: 'dist/images/buick.jpg',
+                title: 'Buick',
                 description: 'My description'
             },
             {
-                thumb: 'https://dummyimage.com/300',
-                image: 'https://dummyimage.com/800',
-                big_image: 'https://dummyimage.com/2048',
-                title: 'My title',
+                img: {
+                    dataNgSrc: 'dist/images/stadium-300x300.jpg',
+                    dataImage: 'dist/images/stadium-768x500.jpg',
+                    dataBig_image: 'dist/images/stadium.jpg',
+                    dataTitle: 'Stadium',
+                    dataDescription: 'My description'
+                },
+                thumb: 'dist/images/stadium-300x300.jpg',
+                image: 'dist/images/stadium-768x500.jpg',
+                big_image: 'dist/images/stadium.jpg',
+                title: 'Stadium',
                 description: 'My description'
             },
             {
-                thumb: 'https://dummyimage.com/300',
-                image: 'https://dummyimage.com/800',
-                big_image: 'https://dummyimage.com/2048',
-                title: 'My title',
+                img: {
+                    dataNgSrc: 'dist/images/bmw-300x300.jpg',
+                    dataImage: 'dist/images/bmw-768x512.jpg',
+                    dataBig_image: 'dist/images/bmw.jpg',
+                    dataTitle: 'BMW',
+                    dataDescription: 'My description'
+                },
+                thumb: 'dist/images/bmw-300x300.jpg',
+                image: 'dist/images/bmw-768x512.jpg',
+                big_image: 'dist/images/bmw.jpg',
+                title: 'BMW',
                 description: 'My description'
             }
         ]
@@ -103,7 +138,7 @@ bower install --save rc-gallery
 <div ng-controller="galleryCtrl">
     <rc-gallery rcg-load-urls="'dist/vendor/unitegallery/skins/alexis/unitegallery.alexis.css'" >
         <rcg-media rcg-unitegallery rcg-width="1400" rcg-height="400" rcg-sources="gallery" rcg-theme="{{unitegallery_theme}}" rcg-options="unitegallery_options" >
-            <img data-ng-repeat="source in sources" data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
+            <img data-ng-repeat="source in sources" rcg-source="source.img" />
         </rcg-media>
     </rc-gallery>
     

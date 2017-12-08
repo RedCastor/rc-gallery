@@ -6,7 +6,7 @@
 (function(angular) {
     "use strict";
     var module = angular.module("rcGallery");
-    module.directive("rcgMedia", [ "$log", "$timeout", function($log, $timeout) {
+    module.directive("rcgMedia", [ function() {
         return {
             restrict: "EA",
             require: "^rc-gallery",
@@ -58,7 +58,32 @@
 (function(angular) {
     "use strict";
     var module = angular.module("rcGallery");
-    module.directive("rcGallery", [ "$log", "$timeout", function($log, $timeout) {
+    module.directive("rcgSource", [ function() {
+        return {
+            restrict: "A",
+            link: function(scope, elem, attrs) {
+                if (attrs.rcgSource) {
+                    var source = scope.$eval(attrs.rcgSource);
+                    if (angular.isObject(source)) {
+                        angular.forEach(source, function(value, key) {
+                            var attr = key.replace(/([A-Z])/g, function($1) {
+                                return "-" + $1.toLowerCase();
+                            });
+                            if (attr.length > 0) {
+                                attrs.$set(attr, value);
+                            }
+                        });
+                    }
+                }
+            }
+        };
+    } ]);
+})(angular);
+
+(function(angular) {
+    "use strict";
+    var module = angular.module("rcGallery");
+    module.directive("rcGallery", [ function() {
         return {
             restrict: "EA",
             scope: {
@@ -79,7 +104,7 @@
 (function(angular) {
     "use strict";
     var module = angular.module("rcGallery");
-    module.controller("rcGalleryCtrl", [ "$scope", "$log", "$timeout", "rcGallery", "rcGalleryLazyload", function($scope, $log, $timeout, rcGallery, rcGalleryLazyload) {
+    module.controller("rcGalleryCtrl", [ "$scope", "$log", "rcGallery", "rcGalleryLazyload", function($scope, $log, rcGallery, rcGalleryLazyload) {
         var rcGalleryApi = this;
         this.rcGalleryElement = null;
         this.init = function() {

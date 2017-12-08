@@ -4,7 +4,7 @@
 
     var module = angular.module('rcGallery');
 
-    module.controller("rcGalleryCtrl", [ '$scope', '$log', '$timeout', 'rcGallery', 'rcGalleryLazyload', function ($scope, $log, $timeout, rcGallery, rcGalleryLazyload) {
+    module.controller("rcGalleryCtrl", [ '$scope', '$log', 'rcGallery', 'rcGalleryLazyload', function ($scope, $log, rcGallery, rcGalleryLazyload) {
 
         var rcGalleryApi = this;
         this.rcGalleryElement = null;

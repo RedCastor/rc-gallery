@@ -66,6 +66,13 @@
 
             $scope.gallery = [
                 {
+                    img: {
+                        dataNgSrc: 'dist/images/loco-300x300.jpg',
+                        dataImage: 'dist/images/loco-768x518.jpg',
+                        dataBig_image: 'dist/images/loco.jpg',
+                        dataTitle: 'Loco',
+                        dataDescription: 'My description'
+                    },
                     thumb: 'dist/images/loco-300x300.jpg',
                     image: 'dist/images/loco-768x518.jpg',
                     big_image: 'dist/images/loco.jpg',
@@ -73,6 +80,13 @@
                     description: 'My description'
                 },
                 {
+                    img: {
+                        dataNgSrc: 'dist/images/mining-excavator-300x300.jpg',
+                        dataImage: 'dist/images/loco-768x518.jpg',
+                        dataBig_image: 'dist/images/mining-excavator.jpg',
+                        dataTitle: 'Mining Excavator',
+                        dataDescription: 'My description'
+                    },
                     thumb: 'dist/images/mining-excavator-300x300.jpg',
                     image: 'dist/images/loco-768x518.jpg',
                     big_image: 'dist/images/mining-excavator.jpg',
@@ -80,6 +94,13 @@
                     description: 'My description'
                 },
                 {
+                    img: {
+                        dataNgSrc: 'dist/images/buick-300x300.jpg',
+                        dataImage: 'dist/images/buick-768x512.jpg',
+                        dataBig_image: 'dist/images/buick.jpg',
+                        dataTitle: 'Buick',
+                        dataDescription: 'My description'
+                    },
                     thumb: 'dist/images/buick-300x300.jpg',
                     image: 'dist/images/buick-768x512.jpg',
                     big_image: 'dist/images/buick.jpg',
@@ -87,6 +108,13 @@
                     description: 'My description'
                 },
                 {
+                    img: {
+                        dataNgSrc: 'dist/images/stadium-300x300.jpg',
+                        dataImage: 'dist/images/stadium-768x500.jpg',
+                        dataBig_image: 'dist/images/stadium.jpg',
+                        dataTitle: 'Stadium',
+                        dataDescription: 'My description'
+                    },
                     thumb: 'dist/images/stadium-300x300.jpg',
                     image: 'dist/images/stadium-768x500.jpg',
                     big_image: 'dist/images/stadium.jpg',
@@ -94,6 +122,13 @@
                     description: 'My description'
                 },
                 {
+                    img: {
+                        dataNgSrc: 'dist/images/bmw-300x300.jpg',
+                        dataImage: 'dist/images/bmw-768x512.jpg',
+                        dataBig_image: 'dist/images/bmw.jpg',
+                        dataTitle: 'BMW',
+                        dataDescription: 'My description'
+                    },
                     thumb: 'dist/images/bmw-300x300.jpg',
                     image: 'dist/images/bmw-768x512.jpg',
                     big_image: 'dist/images/bmw.jpg',
@@ -125,7 +160,7 @@
                 <h3>Angular wrapper for Unitegallery and Galleria</h3>
                 <a class="button large hollow default" href="https://github.com/RedCastor/rc-gallery"><i class="fa fa-github"></i>&nbsp;&nbsp;View on GitHub</a>
                 <a class="button large hollow default" href="https://github.com/RedCastor/rc-gallery/releases"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</a>
-                <h5 class="version"><small>Currently v1.0.0</small></h5>
+                <h5 class="version"><small>Currently v1.0.1</small></h5>
             </div>
         </div>
     </div>
@@ -140,7 +175,7 @@
                 </header>
                 <rc-gallery rcg-load-urls="'../dist/vendor/unitegallery/skins/alexis/unitegallery.alexis.css'" >
                     <rcg-media rcg-unitegallery rcg-width="1400" rcg-height="400" rcg-sources="gallery" rcg-theme="{{unitegallery_theme}}" rcg-options="unitegallery_options" >
-                        <img data-ng-repeat="source in sources" data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
+                        <img data-ng-repeat="source in sources" rcg-source="source.img" />
                     </rcg-media>
                 </rc-gallery>
             </div>

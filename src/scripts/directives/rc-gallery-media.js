@@ -6,7 +6,7 @@
 
 
     //rcg Media run link at priority 100 to answer plugin is linked before.
-    module.directive('rcgMedia', [ '$log', '$timeout', function ( $log, $timeout ) {
+    module.directive('rcgMedia', [ function () {
         return {
             restrict: 'EA',
             require: "^rc-gallery",
