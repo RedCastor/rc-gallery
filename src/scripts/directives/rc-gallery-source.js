@@ -26,11 +26,13 @@
                     if (angular.isObject(source)) {
                         angular.forEach(source, function(value, key) {
 
-                            //Camel case to dash convertion
-                            var attr = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
+                            if (key.indexOf('$') !== 0) {
+                                //Camel case to dash convertion
+                                var attr = key.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
 
-                            if (attr.length > 0) {
-                                attrs.$set( attr, value);
+                                if (attr.length > 0) {
+                                    attrs.$set( attr, value);
+                                }
                             }
                         });
                     }

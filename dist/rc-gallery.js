@@ -66,11 +66,13 @@
                     var source = scope.$eval(attrs.rcgSource);
                     if (angular.isObject(source)) {
                         angular.forEach(source, function(value, key) {
-                            var attr = key.replace(/([A-Z])/g, function($1) {
-                                return "-" + $1.toLowerCase();
-                            });
-                            if (attr.length > 0) {
-                                attrs.$set(attr, value);
+                            if (key.indexOf("$") !== 0) {
+                                var attr = key.replace(/([A-Z])/g, function($1) {
+                                    return "-" + $1.toLowerCase();
+                                });
+                                if (attr.length > 0) {
+                                    attrs.$set(attr, value);
+                                }
                             }
                         });
                     }
