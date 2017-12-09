@@ -31,7 +31,7 @@
 
 
 
-    module.directive('rcgUnitegallery', [ '$log', '$interval', 'rcGalleryUnitegallery', function ($log, $interval, rcGalleryUnitegallery) {
+    module.directive('rcgUnitegallery', [ '$interval', 'rcGalleryUnitegallery', function ( $interval, rcGalleryUnitegallery) {
         return {
             restrict: 'EA',
             require: "^rc-gallery",
@@ -68,19 +68,9 @@
                                     angular.extend(rcGalleryApi.options, {gallery_theme: rcGalleryApi.theme});
                                 }
 
-                                //Extend with width.
-                                var width = parseInt(rcGalleryApi.width, 10);
-                                if ( !isNaN(width) ) {
-                                    angular.extend(rcGalleryApi.options, {gallery_width: width});
-                                }
-
-                                //Extend with height.
-                                var height = parseInt(rcGalleryApi.height, 10);
-                                if ( !isNaN(height) ) {
-                                    angular.extend(rcGalleryApi.options, {gallery_height: height});
-                                }
-
-                                $log.debug(rcGalleryApi.options);
+                                //Extend with Size width and height.
+                                angular.extend(rcGalleryApi.options, {gallery_width: rcGalleryApi.width});
+                                angular.extend(rcGalleryApi.options, {gallery_height: rcGalleryApi.height});
 
                                 unitegalleryApi = rcGalleryApi.mediaGalleryElement.unitegallery(rcGalleryApi.options);
 
