@@ -70,25 +70,27 @@
                         dataNgSrc: 'dist/images/loco-300x300.jpg',
                         dataImage: 'dist/images/loco-768x518.jpg',
                         dataBig_image: 'dist/images/loco.jpg',
+                        dataType: 'youtube',
+                        dataVideoid: '63OVcmS5x3M',
                         alt: 'Loco',
-                        dataDescription: 'My description'
+                        dataDescription: '4 maliger Motorstart von Br 218 456 und 218 481 am IC 2012 in Kempten'
                     },
                     thumb: 'dist/images/loco-300x300.jpg',
-                    image: 'dist/images/loco-768x518.jpg',
+                    image: 'https://www.youtube.com/watch?v=63OVcmS5x3M',
                     big_image: 'dist/images/loco.jpg',
                     title: 'Loco',
-                    description: 'My description'
+                    description: '4 maliger Motorstart von Br 218 456 und 218 481 am IC 2012 in Kempten'
                 },
                 {
                     img: {
                         dataNgSrc: 'dist/images/mining-excavator-300x300.jpg',
-                        dataImage: 'dist/images/loco-768x518.jpg',
+                        dataImage: 'dist/images/mining-excavator-768x512.jpg',
                         dataBig_image: 'dist/images/mining-excavator.jpg',
                         alt: 'Mining Excavator',
                         dataDescription: 'My description'
                     },
                     thumb: 'dist/images/mining-excavator-300x300.jpg',
-                    image: 'dist/images/loco-768x518.jpg',
+                    image: 'dist/images/mining-excavator-768x512.jpg',
                     big_image: 'dist/images/mining-excavator.jpg',
                     title: 'Mining Excavator',
                     description: 'My description'
@@ -188,7 +190,9 @@
                 </header>
                 <rc-gallery >
                     <rcg-media rcg-galleria rcg-width="100%" rcg-height="0.4" rcg-sources="gallery"  rcg-theme="classic" rcg-options="galleria_options" >
-                        <img data-ng-repeat="source in sources" data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
+                        <a data-ng-repeat="source in sources" data-ng-href="{{source.image}}" >
+                            <img data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
+                        </a>
                     </rcg-media>
                 </rc-gallery>
             </div>
@@ -201,7 +205,7 @@
                 </header>
                 <rc-gallery >
                     <rcg-media rcg-unitegallery rcg-width="1400" rcg-height="400" rcg-sources="gallery" rcg-theme="tiles" rcg-options="unitegallery_options" >
-                        <img data-ng-repeat="source in sources" data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
+                        <img data-ng-repeat="source in sources" rcg-source="source.img" />
                     </rcg-media>
                 </rc-gallery>
             </div>

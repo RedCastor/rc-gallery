@@ -69,8 +69,13 @@
                                 }
 
                                 //Extend with Size width and height.
-                                angular.extend(rcGalleryApi.options, {gallery_width: rcGalleryApi.width});
-                                angular.extend(rcGalleryApi.options, {gallery_height: rcGalleryApi.height});
+                                if (rcGalleryApi.width) {
+                                    angular.extend(rcGalleryApi.options, {gallery_width: rcGalleryApi.width});
+                                }
+
+                                if (rcGalleryApi.height) {
+                                    angular.extend(rcGalleryApi.options, {gallery_height: rcGalleryApi.height});
+                                }
 
                                 unitegalleryApi = rcGalleryApi.mediaGalleryElement.unitegallery(rcGalleryApi.options);
 
