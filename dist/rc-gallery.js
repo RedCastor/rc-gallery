@@ -180,6 +180,15 @@
         } ];
     } ]);
     module.factory("rcGalleryLazyload", [ "$q", function($q) {
+        function _createNewEvent(eventName) {
+            if (typeof Event === "function") {
+                return new Event(eventName);
+            } else {
+                var _custom_event = document.createEvent("Event");
+                _custom_event.initEvent(eventName, true, true);
+                return _custom_event;
+            }
+        }
         var lazyload = {
             get: function(urls) {
                 var promises = [];
@@ -209,8 +218,8 @@
                         break;
                     }
                     if (!script[0]) {
-                        var event_on_complete = new Event("onRcGalleryLazyloadComplete");
-                        var event_on_error = new Event("onRcGalleryLazyloadError");
+                        var event_on_complete = _createNewEvent("onRcGalleryLazyloadComplete");
+                        var event_on_error = _createNewEvent("onRcGalleryLazyloadError");
                         script.onload = function() {
                             script.dispatchEvent(event_on_complete);
                             url_deferred.resolve(script);

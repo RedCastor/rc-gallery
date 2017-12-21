@@ -31,6 +31,25 @@
 
     module.factory('rcGalleryLazyload', [ '$q', function ( $q ) {
 
+        /**
+         * Create Event compatibility for IE
+         *
+         * @param eventName
+         * @returns {Event}
+         * @private
+         */
+        function _createNewEvent( eventName ) {
+
+            if( typeof(Event) === 'function' ) {
+                return new Event( eventName );
+            }
+            else {
+                var _custom_event = document.createEvent('Event');
+                _custom_event.initEvent(eventName, true, true);
+
+                return _custom_event;
+            }
+        }
 
         var lazyload = {
 
@@ -76,8 +95,8 @@
                     if (!script[0]) {
 
                         //Create event for other instance of rcGAlleria to catch same script loaded or error.
-                        var event_on_complete = new Event('onRcGalleryLazyloadComplete');
-                        var event_on_error = new Event('onRcGalleryLazyloadError');
+                        var event_on_complete = _createNewEvent('onRcGalleryLazyloadComplete');
+                        var event_on_error = _createNewEvent('onRcGalleryLazyloadError');
 
                         script.onload = function(){
                             script.dispatchEvent(event_on_complete);
