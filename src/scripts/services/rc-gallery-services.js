@@ -63,6 +63,7 @@
             get: function (urls){
                 var promises = [];
 
+                console.log('Get source plugin');
                 angular.forEach(urls , function(url) {
                     var url_deferred = $q.defer();
                     var script;
@@ -91,6 +92,7 @@
                             break;
                     }
 
+
                     //If script dom element not exist create the dom element.
                     if (!script[0]) {
 
@@ -99,19 +101,23 @@
                         var event_on_error = _createNewEvent('onRcGalleryLazyloadError');
 
                         script.onload = function(){
+                            script.setAttribute('loaded', 'true');
                             script.dispatchEvent(event_on_complete);
                             url_deferred.resolve(script);
                         };
 
                         script.onError = function(){
+                            script.setAttribute('loaded', 'false');
                             script.dispatchEvent(event_on_error);
                             url_deferred.reject(script);
                         };
 
                         document.head.appendChild(script);
                     }
+
                     //If script dom exist attach event for catch script loaded complete or loaded error.
-                    else if (script[0]) {
+                    if (script.lenght > 1 && !script.getAttribute('loaded') ) {
+
                         script[0].addEventListener('onRcGalleryLazyloadComplete', function () {
                             script[0].removeEventListener('onRcGalleryLazyloadComplete', this);
                             url_deferred.resolve(script);
@@ -121,16 +127,16 @@
                             script[0].removeEventListener('onRcGalleryLazyloadError', this);
                             url_deferred.reject(script);
                         });
+
                     }
                     else {
                         url_deferred.resolve(script);
                     }
 
-
                     this.push(url_deferred.promise);
                 }, promises);
 
-
+                console.log(promises);
                 return $q.all(promises);
             }
         };
