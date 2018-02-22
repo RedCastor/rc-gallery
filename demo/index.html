@@ -162,7 +162,7 @@
                 <h3>Angular wrapper for Unitegallery and Galleria</h3>
                 <a class="button large hollow default" href="https://github.com/RedCastor/rc-gallery"><i class="fa fa-github"></i>&nbsp;&nbsp;View on GitHub</a>
                 <a class="button large hollow default" href="https://github.com/RedCastor/rc-gallery/releases"><i class="fa fa-download"></i>&nbsp;&nbsp;Download</a>
-                <h5 class="version"><small>Currently v1.0.6</small></h5>
+                <h5 class="version"><small>Currently v1.0.7</small></h5>
             </div>
         </div>
     </div>
@@ -189,7 +189,7 @@
                     <h4 class="page-header">Galleria (<a href="https://galleria.io/" target="_blank">Web site galleria</a>)</h4>
                 </header>
                 <rc-gallery >
-                    <rcg-media rcg-galleria rcg-width="100%" rcg-height="0.4" rcg-sources="gallery"  rcg-theme="classic" rcg-options="galleria_options" >
+                    <rcg-media rcg-galleria rcg-height="50vh" rcg-sources="gallery"  rcg-theme="classic" rcg-options="galleria_options" >
                         <a data-ng-repeat="source in sources" data-ng-href="{{source.image}}" >
                             <img data-ng-src="{{source.thumb}}" data-title="{{source.title}}" data-description="{{source.description}}" alt="{{source.alt}}" data-image="{{source.big_image}}" />
                         </a>
@@ -204,7 +204,7 @@
                     <h4 class="page-header">Unite Gallery Tiles(<a href="http://unitegallery.net/" target="_blank">Web site unitegallery</a>)</h4>
                 </header>
                 <rc-gallery >
-                    <rcg-media rcg-unitegallery rcg-width="1400" rcg-height="400" rcg-sources="gallery" rcg-theme="tiles" rcg-options="unitegallery_options" >
+                    <rcg-media rcg-unitegallery rcg-width="100%" rcg-sources="gallery" rcg-theme="tiles" rcg-options="unitegallery_options" >
                         <img data-ng-repeat="source in sources" rcg-source="source.img" />
                     </rcg-media>
                 </rc-gallery>
