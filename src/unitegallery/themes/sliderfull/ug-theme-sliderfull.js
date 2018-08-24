@@ -37,7 +37,7 @@ function UGTheme_sliderfull(){
 		slider_enable_play_button: false,
 		slider_enable_fullscreen_button:false,
 		slider_enable_zoom_panel: false,
-		slider_vertical_scroll_ondrag: true
+		slider_vertical_scroll_ondrag: true,
 	};
 	
 	
@@ -66,6 +66,8 @@ function UGTheme_sliderfull(){
         g_lightbox.init(gallery, g_options);
 
 		g_objSlider = g_objects.g_objSlider;
+
+        //objSlide.children(".ug-button-videoplay");
 	};
 
 	
@@ -140,22 +142,43 @@ function UGTheme_sliderfull(){
 	 */
 	function initAndPlaceElements(){
 		placeSlider();
+
 		g_objSlider.run();
 
         g_lightbox.run();
 	}
-	
+
+
+    /**
+     * actually run the theme
+     */
+    function actualRun(){
+
+        initAndPlaceElements();
+
+        initEvents();
+
+        var sliderElement = g_objSlider.getElement();
+
+        //Remove Event Play video
+        jQuery(sliderElement).find('.ug-button-videoplay').each(function( index ) {
+            jQuery(this).off();
+        });
+
+        //Remove video player in slider
+        jQuery(sliderElement).find('.ug-videoplayer').remove();
+    }
+
+
 	/**
 	 * run the theme setting
 	 */
 	this.run = function(){
 		
 		setHtml();
-			
-		initAndPlaceElements();
-		
-		initEvents();
-	}
+
+        actualRun();
+	};
 
 
     /**

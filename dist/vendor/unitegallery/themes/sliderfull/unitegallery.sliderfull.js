@@ -64,10 +64,18 @@ function UGTheme_sliderfull() {
         g_objSlider.run();
         g_lightbox.run();
     }
-    this.run = function() {
-        setHtml();
+    function actualRun() {
         initAndPlaceElements();
         initEvents();
+        var sliderElement = g_objSlider.getElement();
+        jQuery(sliderElement).find(".ug-button-videoplay").each(function(index) {
+            jQuery(this).off();
+        });
+        jQuery(sliderElement).find(".ug-videoplayer").remove();
+    }
+    this.run = function() {
+        setHtml();
+        actualRun();
     };
     this.destroy = function() {
         jQuery(g_objSlider).off(g_objSlider.events.CLICK);
