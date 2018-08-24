@@ -28,7 +28,7 @@
             rcGalleryUnitegalleryProvider.setUrls([
                 '../dist/vendor/unitegallery/js/unitegallery.js',
                 '../dist/vendor/unitegallery/css/unitegallery.css',
-                '../dist/vendor/unitegallery/themes/slider/unitegallery.slider.js',
+                '../dist/vendor/unitegallery/themes/sliderfull/unitegallery.sliderfull.js',
                 '../dist/vendor/unitegallery/themes/tiles/unitegallery.tiles.js'
             ]);
         }]);
@@ -47,14 +47,15 @@
 
         app.controller('galleryCtrl', ['$scope', function ($scope) {
 
-            $scope.unitegallery_theme = 'slider';
+            $scope.unitegallery_theme = 'sliderfull';
 
             $scope.unitegallery_options = {
                 gallery_preserve_ratio: true,
                 gallery_skin:'alexis',
                 slider_bullets_skin: 'alexis',
                 slider_enable_bullets: true,
-                slider_control_zoom: false
+                slider_control_zoom: false,
+
             };
 
             $scope.galleria_options = {
