@@ -202,7 +202,6 @@
         var lazyload = {
             get: function(urls) {
                 var promises = [];
-                console.log("Get source plugin");
                 angular.forEach(urls, function(url) {
                     var url_deferred = $q.defer();
                     var script;
@@ -257,7 +256,6 @@
                     }
                     this.push(url_deferred.promise);
                 }, promises);
-                console.log(promises);
                 return $q.all(promises);
             }
         };
